@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Globalization;
-
-namespace Evaluacion1
+namespace Evaluacion_1_vol2
 {
     class Program
     {
         static void Main(string[] args)
         {
             //variables
-            int numReg, contador=1;
-            int salario = 1000;
+            int numReg, contador = 1, salario = 1000, horallegada, minutollegada;
             double horastrabajadas, salariosemanal;
 
-            
-            while(contador == 1) 
+
+            while (contador == 1)
             {
 
                 //Bienvenida al sistema
@@ -32,21 +30,28 @@ namespace Evaluacion1
                 Console.WriteLine(localDate.ToString());
                 Console.WriteLine("");
 
-                Console.WriteLine("Máxima Hora de llegada permitida: ");
-                DateTime fecahYhora = DateTime.Now;
-                TimeSpan hora = new TimeSpan(8, 0, 0);
+                Console.WriteLine("Por favor Ingrese su Hora de llegada a las áreas de Trabajo");
+                Console.WriteLine("Utilice Formato Militar");
+                horallegada = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("");
+                Console.WriteLine("Ahora Ingrese el Minuto de llegada");
+                minutollegada = Convert.ToInt32(Console.ReadLine());
 
-                fecahYhora = fecahYhora.Date + hora;
-
-                Console.WriteLine(fecahYhora.ToString());
-
-                if (localDate > fecahYhora)
+                if (horallegada > 8)
                 {
                     Console.WriteLine("Hora de llegada Tardía. ¡No puede ingresar a trabajar!");
                 }
                 else
                 {
                     Console.WriteLine("Bienvenido al trabajo");
+                }
+                if (minutollegada <= 5)
+                {
+                    Console.WriteLine("Consulte con el supervisor si puede ingresar al trabajo");
+                }
+                else
+                {
+                    Console.WriteLine("Hora de llegada Tardía. ¡No puede ingresar a trabajar!");
                 }
 
                 //calculadora
@@ -64,6 +69,5 @@ namespace Evaluacion1
                 contador = Convert.ToInt32(Console.ReadLine());
             }
         }
-
     }
 }
